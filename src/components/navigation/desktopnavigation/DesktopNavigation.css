@@ -1,0 +1,13 @@
+ .desktopNavigationTabWrapper {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  align-items: center;
+} 
+
+.profile {
+	align-self: center;
+	justify-self: flex-end;
+}
+
+
+
