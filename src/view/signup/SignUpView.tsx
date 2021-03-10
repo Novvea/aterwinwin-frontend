@@ -46,7 +46,7 @@ export const SignUpView = () => {
       </label>
       <br />
       <label> Upprepa ditt lösenord:
-        <input type='password' required onChange={(event) => setLocalUser({ ...localUser, confirmPassword: event.target.value })} />
+        <input type='password' onChange={(event) => setLocalUser({ ...localUser, confirmPassword: event.target.value })} />
       </label>
       <br />
       <button onClick={() => verifyInput()}>Skapa konto</button> <br />
