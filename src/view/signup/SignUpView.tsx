@@ -2,50 +2,59 @@ import { useState, useEffect } from 'react'
 import BackendAPIService from '../../shared/api/service/BackendAPIService'
 
 export const SignUpView = () => {
-  const [loading, setLoading] = useState(false)
+  /*   const [loading, setLoading] = useState(false) */
+  /*   const [allUsers, setAllUsers] = useState([]) */
   const [newUser, setNewUser] = useState({
-    username: 'anna_web',
-    password: 'secret_web'
+    username: '',
+    password: ''
   })
-  const [users, setUsers] = useState([])
+  const [localUser, setLocalUser] = useState({
+    username: '',
+    password: '',
+    confirmPassword: ''
+  })
 
-  const create = async () => {
+  const verifyInput = () => {
+    if (localUser.password === localUser.confirmPassword) {
+      setNewUser({ ...newUser, username: localUser.username, password: localUser.password })
+      createNewUser()
+    } else {
+      console.log('Create new user failed due to nonmatching passwords')
+    }
+  }
+
+  const createNewUser = async () => {
     try {
-      setLoading(true)
       await BackendAPIService.createUser(newUser)
-      setLoading(false)
+      console.log('User was created')
     } catch (error) {
       console.log(error)
     }
   }
 
-  const fetchData = async () => {
-    const response = await BackendAPIService.getAllUsers()
-    setUsers(response.data)
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [loading])
-
-  console.log('users:', users)
+  console.log(newUser)
 
   return (
     <div>
-      <h1>Mitt Backend API</h1>
-      <h1>Fyll i följande fält:</h1>
-      <input placeholder='användarnamn' onChange={(event) => setNewUser({ ...newUser, username: event.target.value })}></input>
+      <h1>Skapa ditt konto här:</h1>
+      <label>Fyll i ditt användarnamn:
+        <input type="text" required onChange={(event) => setLocalUser({ ...localUser, username: event.target.value })} />
+      </label>
       <br />
-      <input placeholder='lösenord' type='password' onChange={(event) => setNewUser({ ...newUser, password: event.target.value })}></input>
+      <label> Fyll i ditt lösenord:
+        <input type='password' required onChange={(event) => setLocalUser({ ...localUser, password: event.target.value })} />
+      </label>
       <br />
-      {/*  
-      <input placeholder='upprepa lösenord' type='password'></input> */}
-      <button onClick={() => create()}>Skapa konto</button> <br />
-      <hr />
-      <h1>Displaying all users: </h1>
-      <ul>
-        {users.map((x: any) => <li>{x.username}</li>)}
-      </ul>
+      <label> Upprepa ditt lösenord:
+        <input type='password' required onChange={(event) => setLocalUser({ ...localUser, confirmPassword: event.target.value })} />
+      </label>
+      <br />
+      <button onClick={() => verifyInput()}>Skapa konto</button> <br />
+      {/*  <hr />
+            <h1>Displaying all users: </h1>
+       <ul>
+        {allUsers.map((x: any) => <li>{x.username}</li>)}
+      </ul> */}
     </div>
   );
 };
