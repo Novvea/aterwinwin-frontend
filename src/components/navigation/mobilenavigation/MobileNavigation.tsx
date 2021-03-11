@@ -12,7 +12,7 @@ export const MobileNavigation = () => {
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
 
   const displayNavigationOrUsername = () => {
-    return authUserContext.isAuthenticated === true ?
+    return authUserContext ?
       <div className="profile" >
         <Profile />
       </div>

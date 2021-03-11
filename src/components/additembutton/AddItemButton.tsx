@@ -9,7 +9,7 @@ export const AddItemButton = () => {
   const [authUserContext, setAuthUserContext] = useContext(UserContext)
 
   const moveToAddItemViewOrSignUp = () => {
-    authUserContext.isAuthenticated === true
+    authUserContext
       ?
       history.push(RoutingPath.addItemView)
       :

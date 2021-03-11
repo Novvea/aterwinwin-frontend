@@ -8,7 +8,7 @@ export const ProfileDropDown = () => {
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
 
   const logOut = () => {
-    setAuthUserContext({ ...authUserContext, isAuthenticated: false });
+    setAuthUserContext(false);
     localStorage.removeItem('user')
   }
 
