@@ -9,22 +9,26 @@ export const LogInView = () => {
   const [loginCredentials, setLoginCredentials] = useState<i_loginCredentials>({
     username: "",
     password: "",
-   isAuthenticated: false
+    isAuthenticated: false
   });
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
 
   const signIn = () => {
     setLoginCredentials({ ...loginCredentials, isAuthenticated: true })
-    localStorage.setItem(
-      "user",
-      loginCredentials.username
-    ); /* användarnamnet sparas inne i webläsaren */
-    setAuthUserContext(
-      loginCredentials
-    ); /* alla värden i logincredentials sparas i ett globalt värde */
-    history.push(RoutingPath.homeView); /* vi flyttas tillbaka till home-view */
+    if (loginCredentials.isAuthenticated = true) {
+      localStorage.setItem(
+        "user",
+        loginCredentials.username
+      ); /* användarnamnet sparas inne i webläsaren */
+      setAuthUserContext(
+        loginCredentials
+      ); /* alla värden i logincredentials sparas i ett globalt värde */
+      history.push(RoutingPath.homeView); /* vi flyttas tillbaka till home-view */
+    } else {
+      alert('Det har inte funkat i Loginview att sätta IsAuthenticated till true')
+    }
   };
-
+  console.log('loginview authUserContext: ', authUserContext)
 
   return (
     <div>
