@@ -12,20 +12,20 @@ export const MobileNavigation = () => {
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
 
   const displayNavigationOrUsername = () => {
-    return authUserContext ? 
+    return authUserContext.isAuthenticated === true ?
       <div className="profile" >
         <Profile />
       </div>
-     : 
-     <>
-    <HamburgerButton sideBarHandler={setOpenSideBar}/>
-    <SideBar sideBarIsOpen={openSideBar} sideBarHandler={setOpenSideBar}/>
-    {!openSideBar || <BackDrop sideBarHandler={setOpenSideBar}/>}
-    </>
-    }
+      :
+      <>
+        <HamburgerButton sideBarHandler={setOpenSideBar} />
+        <SideBar sideBarIsOpen={openSideBar} sideBarHandler={setOpenSideBar} />
+        {!openSideBar || <BackDrop sideBarHandler={setOpenSideBar} />}
+      </>
+  }
 
-    return displayNavigationOrUsername()
-    };
+  return displayNavigationOrUsername()
+};
 
 
 
