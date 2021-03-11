@@ -1,10 +1,11 @@
 import { useEffect, useContext } from "react";
 import { Link } from 'react-router-dom'
+import RoutingPath from '../../routes/RoutingPath'
 import './HomeView.css'
 import { ProductCards } from '../../components/productcards/ProductCards'
 import { Search } from '../../components/search/Search'
-import RoutingPath from '../../routes/RoutingPath'
 import { UserContext } from '../../shared/provider/UserProvider'
+import { AddItemButton } from '../../components/additembutton/AddItemButton'
 
 export const HomeView = () => {
   const [authUserContext] = useContext(UserContext);
@@ -23,14 +24,15 @@ export const HomeView = () => {
   return (
     <div className='homeViewWrapper'>
       {/*  {displayUsernameIfAuthenticated()} */}
-      <div className='homeViewCategoriesWrapper'>
+      {/*       <div className='homeViewCategoriesWrapper'>
         <Link to={RoutingPath.categoriesView}>Kategorier</Link>
       </div>
       <div className='homeViewSearchWrapper'>
         <Search />
-      </div>
+      </div> */}
       <div className='homeViewProductCardsWrapper'>
         <ProductCards />
+        <AddItemButton />
         <Link to={RoutingPath.myProfileView}>Hitta mina gillade produkter här...</Link>
       </div>
     </div>
