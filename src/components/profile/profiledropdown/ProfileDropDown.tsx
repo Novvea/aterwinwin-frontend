@@ -15,7 +15,7 @@ export const ProfileDropDown = () => {
   return (
     <div className="profileDropDown">
       <Link to={RoutingPath.myProfileView}>Min profil</Link>
-      <button>Lägg upp vara</button>
+      <Link to={RoutingPath.addItemView}>Lägg upp vara</Link>
       <button>Skapa önskelista</button>
       <Link to={RoutingPath.settingsView}>Inställningar</Link>
       <Link to={RoutingPath.homeView} onClick={() => logOut()}>Logga ut</Link>
