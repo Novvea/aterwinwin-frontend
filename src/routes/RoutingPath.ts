@@ -3,10 +3,11 @@ const aboutView = "/about";
 const categoriesView = "/categories";
 const logInView = "/login";
 const signUpView = "/signup";
+const addItemView = "/additem"
 
 //Authenticated views:
 const settingsView = "/settings"
-const myProfileView ="/myprofile"
+const myProfileView = "/myprofile"
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -16,5 +17,6 @@ export default {
   logInView,
   signUpView,
   settingsView,
-  myProfileView
+  myProfileView,
+  addItemView
 };

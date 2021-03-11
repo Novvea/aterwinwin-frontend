@@ -6,6 +6,7 @@ import { LogInView } from "../view/login/LogInView";
 import { SignUpView } from "../view/signup/SignUpView";
 import { SettingsView } from '../view/authenticateduserviews/settingsview/SettingsView'
 import { MyProfileView } from '../view/authenticateduserviews/myprofileview/MyProfileView'
+import { AddItemView } from '../view/additem/AddItemView'
 import RoutingPath from "./RoutingPath";
 import { UserContext } from "../shared/provider/UserProvider";
 import { useEffect, useContext } from "react";
@@ -36,6 +37,7 @@ export const Routes = (props: { children: React.ReactChild }) => {
         <Route exact path={RoutingPath.signUpView} component={SignUpView} />
         <Route exact path={RoutingPath.settingsView} component={changeRoute(SignUpView, SettingsView)} />
         <Route exact path={RoutingPath.myProfileView} component={changeRoute(SignUpView, MyProfileView)} />
+        <Route exact path={RoutingPath.addItemView} component={AddItemView} />
         <Route component={HomeView} />{" "}
         {/* Om vi vill att homeView är den första sidan vi kommer till och om något blir fel */}
       </Switch>
