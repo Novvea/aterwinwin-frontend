@@ -1,15 +1,19 @@
 import styles from './AddItemButton.module.css'
 import { useHistory } from 'react-router-dom'
+import { useContext } from 'react'
 import RoutingPath from '../../routes/RoutingPath'
-
-//se om användaren är inloggad eller inte
-//flytta till lägg till object eller bli medlem
+import { UserContext } from '../../shared/provider/UserProvider'
 
 export const AddItemButton = () => {
   const history = useHistory();
+  const [authUserContext, setAuthUserContext] = useContext(UserContext)
 
   const moveToAddItemViewOrSignUp = () => {
-    history.push(RoutingPath.addItemView)
+    authUserContext.isAuthenticated === true
+      ?
+      history.push(RoutingPath.addItemView)
+      :
+      history.push(RoutingPath.signUpView)
   }
 
   return (
