@@ -1,23 +1,9 @@
 .navigationWrapper {
-/*   background: #b5d5b1;*/
-   background-color: #deebdd;
-  background-image: linear-gradient(315deg, #79cc83 0%, #485e50 56%);
   height: 60px;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-/*   border-bottom: 1px solid rgb(87, 124, 87); */
-/*   position: fixed;
-  width: 100%; */
 }
-
-/*
---charcoal: #233d4dff;
---pumpkin: #fe7f2dff;
---sunglow: #fcca46ff;
---olivine: #a1c181ff;
---polished-pine: #619b8aff 
- */
 
 .appName{
   display: flex;
