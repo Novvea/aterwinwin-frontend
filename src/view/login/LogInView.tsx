@@ -1,45 +1,39 @@
-import { useState, useContext } from "react";
-import { i_loginCredentials } from "../../shared/interface/Interface";
+import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import RoutingPath from "../../routes/RoutingPath";
 import { UserContext } from "../../shared/provider/UserProvider";
 
 export const LogInView = () => {
   const history = useHistory();
-  const [loginCredentials, setLoginCredentials] = useState<i_loginCredentials>({
-    username: "",
-    password: "",
-    isAuthenticated: false
-  });
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
 
   const signIn = () => {
-    setLoginCredentials({ ...loginCredentials, isAuthenticated: true })
-    if (loginCredentials.isAuthenticated = true) {
-      localStorage.setItem(
-        "user",
-        loginCredentials.username
-      ); /* användarnamnet sparas inne i webläsaren */
-      setAuthUserContext(
-        loginCredentials
-      ); /* alla värden i logincredentials sparas i ett globalt värde */
-      history.push(RoutingPath.homeView); /* vi flyttas tillbaka till home-view */
-    } else {
-      alert('Det har inte funkat i Loginview att sätta IsAuthenticated till true')
-    }
+    setAuthUserContext({ ...authUserContext, isAuthenticated: true })
+    localStorage.setItem( /* användarnamnet sparas inne i webläsaren */
+      "user",
+      authUserContext.username
+    );
+    history.push(RoutingPath.homeView); /* vi flyttas tillbaka till home-view */
   };
-  console.log('loginview authUserContext: ', authUserContext)
+
+  useEffect(() => {
+    setAuthUserContext({
+      username: "",
+      password: "",
+      isAuthenticated: false
+    })
+    localStorage.removeItem('user')
+  }, [])
 
   return (
     <div>
-      {/* <h1>{loginCredentials.username}</h1> */}
       <h1>Logga in här om du vill.</h1>
       <form>
         <input
           placeholder="username"
           onChange={(event) =>
-            setLoginCredentials({
-              ...loginCredentials,
+            setAuthUserContext({
+              ...authUserContext,
               username: event.target.value,
             })
           }
@@ -48,14 +42,14 @@ export const LogInView = () => {
         <input
           placeholder="password"
           onChange={(event) =>
-            setLoginCredentials({
-              ...loginCredentials,
+            setAuthUserContext({
+              ...authUserContext,
               password: event.target.value,
             })
           }
         />
         <button onClick={() => signIn()}>Logga in</button>
       </form>
-    </div>
+    </div >
   );
 };

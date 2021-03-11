@@ -16,7 +16,7 @@ export const Routes = (props: { children: React.ReactChild }) => {
   const { children } = props;
 
   const changeRoute = (goToView: React.FC, blockView: React.FC) => {
-    return !authUserContext ? goToView : blockView
+    return authUserContext.isAuthenticated === false ? goToView : blockView
   }
   useEffect(() => {
     if (localStorage.getItem("user")) {
@@ -31,7 +31,7 @@ export const Routes = (props: { children: React.ReactChild }) => {
         <Route exact path={RoutingPath.homeView} component={HomeView} />
         <Route exact path={RoutingPath.aboutView} component={AboutView} />
         <Route exact path={RoutingPath.categoriesView} component={CategoriesView} />
-        <Route exact path={RoutingPath.logInView} component={changeRoute(LogInView, HomeView)} />
+        <Route exact path={RoutingPath.logInView} component={LogInView} />
         <Route exact path={RoutingPath.signUpView} component={SignUpView} />
         <Route exact path={RoutingPath.settingsView} component={changeRoute(SignUpView, SettingsView)} />
         <Route exact path={RoutingPath.myProfileView} component={changeRoute(SignUpView, MyProfileView)} />
