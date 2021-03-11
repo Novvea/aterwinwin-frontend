@@ -13,6 +13,8 @@ export const LogInView = () => {
   });
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
 
+  console.log('Test if i managed to do a branch and pull request')
+
   const signIn = () => {
     setLoginCredentials({ ...loginCredentials, isAuthenticated: true })
     if (loginCredentials.isAuthenticated = true) {
