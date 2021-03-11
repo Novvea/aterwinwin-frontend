@@ -26,10 +26,10 @@ export const ProductCards = () => {
   const addCountOnButtonClick = () => {
     setIndexContext(indexContext + 1)
   }
-  console.log('utanför likedPicturesContext:', likedPicturesContext)
+  /* console.log('utanför likedPicturesContext:', likedPicturesContext) */
   const likeAndAddCountOnButtonClick = () => {
     setIndexContext(indexContext + 1)
-    console.log('innanför likedPicturesContext:', likedPicturesContext)
+    /* console.log('innanför likedPicturesContext:', likedPicturesContext) */
     setLikedPicturesContext([...likedPicturesContext, picsumData])
   }
 

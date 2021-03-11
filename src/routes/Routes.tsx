@@ -15,8 +15,6 @@ export const Routes = (props: { children: React.ReactChild }) => {
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
   const { children } = props;
 
-  console.log('authUserContext:', authUserContext)
-
   const changeRoute = (goToView: React.FC, blockView: React.FC) => {
     return !authUserContext ? goToView : blockView
   }
