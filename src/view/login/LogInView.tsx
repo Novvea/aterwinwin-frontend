@@ -1,31 +1,36 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import RoutingPath from "../../routes/RoutingPath";
 import { UserContext } from "../../shared/provider/UserProvider";
+import { i_loginCredentials } from '../../shared/interface/Interface'
 
 export const LogInView = () => {
   const history = useHistory();
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
-
-  console.log('Test if i managed to do a branch and pull request')
+  const [logInFormState, setLogInFormState] = useState<i_loginCredentials>({
+    username: "",
+    password: ""
+  })
 
   const signIn = () => {
-    setAuthUserContext({ ...authUserContext, isAuthenticated: true })
+    setAuthUserContext(logInFormState)
     localStorage.setItem( /* användarnamnet sparas inne i webläsaren */
       "user",
-      authUserContext.username
+      logInFormState.username
     );
     history.push(RoutingPath.homeView); /* vi flyttas tillbaka till home-view */
   };
 
-  useEffect(() => {
-    setAuthUserContext({
-      username: "",
-      password: "",
-      isAuthenticated: false
-    })
-    localStorage.removeItem('user')
-  }, [])
+  /*   useEffect(() => {
+      console.log('innana', authUserContext, 'b', localStorage)
+  
+      setAuthUserContext({
+        username: "",
+        password: "",
+      })
+      localStorage.removeItem('user')
+      console.log('a', authUserContext, 'b', localStorage)
+    }, []) */
 
   return (
     <div>
@@ -34,24 +39,30 @@ export const LogInView = () => {
         <input
           placeholder="username"
           onChange={(event) =>
-            setAuthUserContext({
-              ...authUserContext,
-              username: event.target.value,
+            setLogInFormState({
+              ...logInFormState,
+              username: event.target.value
             })
           }
-        />{" "}
+        />
         <br />
         <input
           placeholder="password"
           onChange={(event) =>
-            setAuthUserContext({
-              ...authUserContext,
+            setLogInFormState({
+              ...logInFormState,
               password: event.target.value,
             })
           }
         />
-        <button onClick={() => signIn()}>Logga in</button>
+        <button onClick={signIn}>Logga in</button>
       </form>
     </div >
   );
 };
+
+  //Gör egen funktion för att spara logincredentials istället för useState
+/*   const formInput = { username: '', password: '' }
+  const storeFormInputData = (typetype: string, input: string) => {
+   return ({ ...formInput, [typetype]: input })
+  } */
