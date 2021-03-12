@@ -14,7 +14,7 @@ export const Profile = () => {
         alt={"Profilepicture"}
       />
       <div className="profileName">
-        {authUserContext.username}
+        {authUserContext.firstname}
       </div>
       <ProfileDropDown />
     </div>

@@ -5,7 +5,7 @@ export interface i_loginCredentials {
 }
 
 export interface i_createNewUser {
-  email: string,
+  /*   email: string, */
   firstname: string,
   lastname: string,
   password: string,
