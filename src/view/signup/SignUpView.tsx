@@ -2,15 +2,15 @@ import { useState } from 'react'
 import BackendAPIService from '../../shared/api/service/BackendAPIService'
 
 export const SignUpView = () => {
-  const [formData, setFormData] = useState({
+  const [signUpFormData, setSignUpFormData] = useState({
     username: '',
     password: '',
     confirmPassword: ''
   })
 
   const verifyInput = () => {
-    if (formData.password === formData.confirmPassword) {
-      createNewUser({ username: formData.username, password: formData.password })
+    if (signUpFormData.password === signUpFormData.confirmPassword) {
+      createNewUser({ username: signUpFormData.username, password: signUpFormData.password })
     } else {
       console.log('Create new user failed due to nonmatching passwords')
     }
@@ -30,15 +30,15 @@ export const SignUpView = () => {
     <div>
       <h1>Skapa ditt konto här:</h1>
       <label>Fyll i ditt användarnamn:
-        <input type="text" required onChange={(event) => setFormData({ ...formData, username: event.target.value })} />
+        <input type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, username: event.target.value })} />
       </label>
       <br />
       <label> Fyll i ditt lösenord:
-        <input type='password' required onChange={(event) => setFormData({ ...formData, password: event.target.value })} />
+        <input type='password' required onChange={(event) => setSignUpFormData({ ...signUpFormData, password: event.target.value })} />
       </label>
       <br />
       <label> Upprepa ditt lösenord:
-        <input type='password' required onChange={(event) => setFormData({ ...formData, confirmPassword: event.target.value })} />
+        <input type='password' required onChange={(event) => setSignUpFormData({ ...signUpFormData, confirmPassword: event.target.value })} />
       </label>
       <br />
       <button onClick={() => verifyInput()}>Skapa konto</button> <br />

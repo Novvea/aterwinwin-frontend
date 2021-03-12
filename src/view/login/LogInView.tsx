@@ -7,30 +7,19 @@ import { i_loginCredentials } from '../../shared/interface/Interface'
 export const LogInView = () => {
   const history = useHistory();
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
-  const [logInFormState, setLogInFormState] = useState<i_loginCredentials>({
+  const [logInFormData, setLogInFormData] = useState<i_loginCredentials>({
     username: "",
     password: ""
   })
 
   const signIn = () => {
-    setAuthUserContext(logInFormState)
+    setAuthUserContext(logInFormData)
     localStorage.setItem( /* användarnamnet sparas inne i webläsaren */
       "user",
-      logInFormState.username
+      logInFormData.username
     );
     history.push(RoutingPath.homeView); /* vi flyttas tillbaka till home-view */
   };
-
-  /*   useEffect(() => {
-      console.log('innana', authUserContext, 'b', localStorage)
-  
-      setAuthUserContext({
-        username: "",
-        password: "",
-      })
-      localStorage.removeItem('user')
-      console.log('a', authUserContext, 'b', localStorage)
-    }, []) */
 
   return (
     <div>
@@ -39,8 +28,8 @@ export const LogInView = () => {
         <input
           placeholder="username"
           onChange={(event) =>
-            setLogInFormState({
-              ...logInFormState,
+            setLogInFormData({
+              ...logInFormData,
               username: event.target.value
             })
           }
@@ -49,8 +38,8 @@ export const LogInView = () => {
         <input
           placeholder="password"
           onChange={(event) =>
-            setLogInFormState({
-              ...logInFormState,
+            setLogInFormData({
+              ...logInFormData,
               password: event.target.value,
             })
           }
