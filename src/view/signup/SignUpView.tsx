@@ -3,22 +3,24 @@ import BackendAPIService from '../../shared/api/service/BackendAPIService'
 
 export const SignUpView = () => {
   const [signUpFormData, setSignUpFormData] = useState({
-    username: '',
+    email: '',
+    firstname: '',
+    lastname: '',
     password: '',
     confirmPassword: ''
   })
 
   const verifyInput = () => {
     if (signUpFormData.password === signUpFormData.confirmPassword) {
-      createNewUser({ username: signUpFormData.username, password: signUpFormData.password })
+      createNewUser({ email: signUpFormData.email, firstname: signUpFormData.firstname, lastname: signUpFormData.lastname, password: signUpFormData.password })
     } else {
       console.log('Create new user failed due to nonmatching passwords')
     }
   }
 
-  const createNewUser = async ({ username, password }: { username: string, password: string }) => {
+  const createNewUser = async ({ email, firstname, lastname, password }: { email: string, firstname: string, lastname: string, password: string }) => {
     try {
-      await BackendAPIService.createUser({ username, password })
+      await BackendAPIService.createUser({ email, firstname, lastname, password })
       console.log('User was created')
     } catch (error) {
       console.log(error)
@@ -29,8 +31,16 @@ export const SignUpView = () => {
   return (
     <div>
       <h1>Skapa ditt konto här:</h1>
-      <label>Fyll i ditt användarnamn:
-        <input type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, username: event.target.value })} />
+      <label>Fyll i din e-post:
+        <input type="email" required onChange={(event) => setSignUpFormData({ ...signUpFormData, email: event.target.value })} />
+      </label>
+      <br />
+      <label>Fyll i ditt förnamn:
+        <input type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, firstname: event.target.value })} />
+      </label>
+      <br />
+      <label>Fyll i ditt efternamn:
+        <input type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, lastname: event.target.value })} />
       </label>
       <br />
       <label> Fyll i ditt lösenord:

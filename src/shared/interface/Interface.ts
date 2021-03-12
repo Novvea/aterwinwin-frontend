@@ -1,11 +1,13 @@
 export interface i_loginCredentials {
-  username: string;
+  email: string;
   password: string;
   /*   isAuthenticated: boolean; */
 }
 
 export interface i_createNewUser {
-  username: string,
+  email: string,
+  firstname: string,
+  lastname: string,
   password: string,
   /* age?: number */
 }

@@ -8,7 +8,7 @@ export const LogInView = () => {
   const history = useHistory();
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
   const [logInFormData, setLogInFormData] = useState<i_loginCredentials>({
-    username: "",
+    email: "",
     password: ""
   })
 
@@ -16,7 +16,7 @@ export const LogInView = () => {
     setAuthUserContext(logInFormData)
     localStorage.setItem( /* användarnamnet sparas inne i webläsaren */
       "user",
-      logInFormData.username
+      logInFormData.email
     );
     history.push(RoutingPath.homeView); /* vi flyttas tillbaka till home-view */
   };
@@ -26,11 +26,11 @@ export const LogInView = () => {
       <h1>Logga in här om du vill.</h1>
       <form>
         <input
-          placeholder="username"
+          placeholder="email"
           onChange={(event) =>
             setLogInFormData({
               ...logInFormData,
-              username: event.target.value
+              email: event.target.value
             })
           }
         />
@@ -40,7 +40,7 @@ export const LogInView = () => {
           onChange={(event) =>
             setLogInFormData({
               ...logInFormData,
-              password: event.target.value,
+              email: event.target.value,
             })
           }
         />
