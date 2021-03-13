@@ -3,23 +3,50 @@ import { useHistory } from "react-router-dom";
 import RoutingPath from "../../routes/RoutingPath";
 import { UserContext } from "../../shared/provider/UserProvider";
 import { i_loginCredentials } from '../../shared/interface/Interface'
+import BackendAPIService from '../../shared/api/service/BackendAPIService'
 
 export const LogInView = () => {
   const history = useHistory();
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
+  const [allUsersFromServer, setAllUsersFromServer] = useState([])
   const [logInFormData, setLogInFormData] = useState<i_loginCredentials>({
     email: "",
     password: ""
   })
 
+  const fetchDataFromServer = async () => {
+    const response = await BackendAPIService.getAllUsers()
+    const emails = response.data.map((item: any) => item.email)
+    console.log('emails', emails)
+    setAllUsersFromServer(response.data)
+  }
+
+  useEffect(() => {
+    fetchDataFromServer()
+  }, [])
+
+
   const signIn = () => {
-    setAuthUserContext(logInFormData)
-    localStorage.setItem( /* användarnamnet sparas inne i webläsaren */
-      "user",
-      logInFormData.email
-    );
-    history.push(RoutingPath.homeView); /* vi flyttas tillbaka till home-view */
-  };
+    const isUserVeryfied = allUsersFromServer.find((item: any) => {
+      if (item.email === logInFormData.email && item.password === logInFormData.password) {
+        setAuthUserContext({
+          email: item.email,
+          firstname: item.firstname,
+          lastname: item.lastname,
+          password: item.password
+        })
+        return true
+      }
+      return false
+    })
+    if (isUserVeryfied) {
+      history.push(RoutingPath.homeView); /* vi flyttas tillbaka till home-view */
+    } else {
+      alert('Antingen är din epost eller ditt lösenord fel, testa igen!')
+    }
+  }
+
+  console.log('authUserContext :', authUserContext)
 
   return (
     <div>
@@ -40,7 +67,7 @@ export const LogInView = () => {
           onChange={(event) =>
             setLogInFormData({
               ...logInFormData,
-              email: event.target.value,
+              password: event.target.value,
             })
           }
         />
