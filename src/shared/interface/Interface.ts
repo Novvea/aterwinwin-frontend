@@ -11,3 +11,8 @@ export interface i_createNewUser {
   password: string,
   /* age?: number */
 }
+
+export interface i_addItem {
+  itemname: string,
+  category: string
+}
