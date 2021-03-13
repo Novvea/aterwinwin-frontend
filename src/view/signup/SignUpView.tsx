@@ -7,7 +7,7 @@ export const SignUpView = () => {
   const history = useHistory()
 
   const [signUpFormData, setSignUpFormData] = useState({
-    /*     email: '', */
+    email: '',
     firstname: '',
     lastname: '',
     password: '',
@@ -16,16 +16,16 @@ export const SignUpView = () => {
 
   const verifyInput = () => {
     if (signUpFormData.password === signUpFormData.confirmPassword) {
-      createNewUser({ /* email: signUpFormData.email, */ firstname: signUpFormData.firstname, lastname: signUpFormData.lastname, password: signUpFormData.password })
+      createNewUser({ email: signUpFormData.email, firstname: signUpFormData.firstname, lastname: signUpFormData.lastname, password: signUpFormData.password })
       console.log('signUpFormData : ', signUpFormData)
     } else {
       console.log('Create new user failed due to nonmatching passwords')
     }
   }
 
-  const createNewUser = async ({/*  email, */ firstname, lastname, password }: { /* email: string,  */firstname: string, lastname: string, password: string }) => {
+  const createNewUser = async ({ email, firstname, lastname, password }: { email: string, firstname: string, lastname: string, password: string }) => {
     try {
-      await BackendAPIService.createUser({/*  email, */ firstname, lastname, password })
+      await BackendAPIService.createUser({ email, firstname, lastname, password })
       console.log('User was created')
       history.push(RoutingPath.homeView)
     } catch (error) {
@@ -37,10 +37,10 @@ export const SignUpView = () => {
   return (
     <div>
       <h1>Skapa ditt konto här:</h1>
-      {/*       <label>Fyll i din e-post:
+      <label>Fyll i din e-post:
         <input type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, email: event.target.value })} />
       </label>
-      <br /> */}
+      <br />
       <label>Fyll i ditt förnamn:
         <input type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, firstname: event.target.value })} />
       </label>
