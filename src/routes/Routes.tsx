@@ -9,7 +9,7 @@ import { MyProfileView } from '../view/authenticateduserviews/myprofileview/MyPr
 import { AddItemView } from '../view/additem/AddItemView'
 import RoutingPath from "./RoutingPath";
 import { UserContext } from "../shared/provider/UserProvider";
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 
 export const Routes = (props: { children: React.ReactChild }) => {
   const [authUserContext, setAuthUserContext] = useContext(UserContext);
@@ -18,11 +18,6 @@ export const Routes = (props: { children: React.ReactChild }) => {
   const changeRoute = (goToView: React.FC, blockView: React.FC) => {
     return !authUserContext ? goToView : blockView
   }
-  useEffect(() => {
-    if (localStorage.getItem("user")) {
-      setAuthUserContext({ username: localStorage.getItem("user") });
-    }
-  }, []);
 
   return (
     <BrowserRouter>
