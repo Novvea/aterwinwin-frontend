@@ -10,7 +10,9 @@ const getAllUsers = () => {
 }
 
 const addItem = (data: i_addItem) => {
+  console.log('data:', data)
   return http.post('/item', data)
+
 }
 
 export default {

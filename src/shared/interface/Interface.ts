@@ -14,5 +14,6 @@ export interface i_createNewUser {
 
 export interface i_addItem {
   itemname: string,
-  category: string
+  category: string,
+  imageUrl: string
 }

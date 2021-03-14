@@ -39,6 +39,7 @@ export const AddItemView = () => {
     try {
       await BackendAPIService.addItem(addItemFormData)
       console.log('Item was added')
+      console.log('data: ', addItemFormData)
     } catch (error) {
       console.log('errormessage: ', error)
     }
