@@ -2,7 +2,7 @@ import { useEffect, useContext } from "react";
 import { Link } from 'react-router-dom'
 import RoutingPath from '../../routes/RoutingPath'
 import './HomeView.css'
-import { ProductCards } from '../../components/productcards/ProductCards'
+import { ItemCards } from '../../components/itemcards/ItemCards'
 import { Search } from '../../components/search/Search'
 import { UserContext } from '../../shared/provider/UserProvider'
 import { AddItemButton } from '../../components/additembutton/AddItemButton'
@@ -30,8 +30,8 @@ export const HomeView = () => {
       <div className='homeViewSearchWrapper'>
         <Search />
       </div> */}
-      <div className='homeViewProductCardsWrapper'>
-        <ProductCards />
+      <div className='homeViewItemCardsWrapper'>
+        <ItemCards />
         <AddItemButton />
         <Link to={RoutingPath.myProfileView}>Hitta mina gillade produkter här...</Link>
       </div>

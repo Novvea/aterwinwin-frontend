@@ -1,8 +1,8 @@
-.productCardWrapper {
+.itemCardWrapper {
   position: relative;
 }
 
-.productCard {
+.itemCard {
   position: absolute;
   background-color: #FFF5EE;
   border-radius: 12px;
@@ -11,14 +11,14 @@
   text-align: center;
 }
 
-.productImage {
+.itemImage {
   width: 33vw;
   height: 33vw;
   object-fit: cover;
   border-radius: 10px;
 }
 
-.productTitle {
+.itemTitle {
   margin: 0;
   font-size: 1.5rem;
 }

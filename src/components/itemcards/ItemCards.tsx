@@ -1,11 +1,11 @@
-import styles from './ProductCards.module.css'
+import styles from './ItemCards.module.css'
 import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import TinderCard from 'react-tinder-card'
 import { CardContext } from '../../shared/provider/CardProvider'
 
 
-export const ProductCards = () => {
+export const ItemCards = () => {
   const [picsumData, setPicsumData] = useState<any>()
   const { indexContext, setIndexContext } = useContext<any>(CardContext)
   const { likedPicturesContext, setLikedPicturesContext } = useContext<any>(CardContext)
@@ -34,25 +34,25 @@ export const ProductCards = () => {
   }
 
   return (
-    <div className={styles.productCardWrapper}>
+    <div className={styles.itemCardWrapper}>
       <TinderCard
         onSwipe={() => console.log('onSwipe')}
         onCardLeftScreen={() => console.log('CardLeftScreen')}
       >
-        <div className={styles.productCard}>
-          <img className={styles.productImage} src={picsumData} alt='A randome produkt taken from the API' />
-          <h2 className={styles.productTitle}>Vattenkanna</h2>
-          <div className={styles.productSubtitle}>5km bort • Kök</div>
+        <div className={styles.itemCard}>
+          <img className={styles.itemImage} src={picsumData} alt='A randome produkt taken from the API' />
+          <h2 className={styles.itemTitle}>Vattenkanna</h2>
+          <div className={styles.itemSubtitle}>5km bort • Kök</div>
         </div>
       </TinderCard>
       <TinderCard
         onSwipe={() => console.log('onSwipe')}
         onCardLeftScreen={() => console.log('CardLeftScreen')}
       >
-        <div className={styles.productCard}>
-          <img className={styles.productImage} src={picsumData} alt='A randome produkt taken from the API' />
-          <h2 className={styles.productTitle}>Vattenkanna</h2>
-          <div className={styles.productSubtitle}>5km bort • Kök</div>
+        <div className={styles.itemCard}>
+          <img className={styles.itemImage} src={picsumData} alt='A randome produkt taken from the API' />
+          <h2 className={styles.itemTitle}>Vattenkanna</h2>
+          <div className={styles.itemSubtitle}>5km bort • Kök</div>
         </div>
       </TinderCard>
       {/*       <h1>Produkt av typen blabla med id {indexContext}</h1>
