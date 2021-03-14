@@ -15,5 +15,8 @@ export interface i_createNewUser {
 export interface i_addItem {
   name: string,
   category: string,
-  url: string
+  url: string,
+  owner: string,
+  interestedUsers: string[],
+  uninterestedUsers: string[]
 }

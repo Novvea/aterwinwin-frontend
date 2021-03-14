@@ -18,9 +18,14 @@ const getAllItems = () => {
   return http.get('/item')
 }
 
+const userLikedItem = (likedItem: any) => {
+  return http.patch('/item/liked', likedItem)
+}
+
 export default {
   createUser,
   getAllUsers,
   addItem,
-  getAllItems
+  getAllItems,
+  userLikedItem
 }
