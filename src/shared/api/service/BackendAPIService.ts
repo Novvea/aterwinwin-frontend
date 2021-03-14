@@ -12,11 +12,15 @@ const getAllUsers = () => {
 const addItem = (data: i_addItem) => {
   console.log('data:', data)
   return http.post('/item', data)
+}
 
+const getAllItems = () => {
+  return http.get('/item')
 }
 
 export default {
   createUser,
   getAllUsers,
-  addItem
+  addItem,
+  getAllItems
 }

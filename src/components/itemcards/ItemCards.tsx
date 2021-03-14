@@ -3,58 +3,39 @@ import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import TinderCard from 'react-tinder-card'
 import { CardContext } from '../../shared/provider/CardProvider'
+import BackendAPIService from '../../shared/api/service/BackendAPIService'
 
 
 export const ItemCards = () => {
-  const [picsumData, setPicsumData] = useState<any>()
-  const { indexContext, setIndexContext } = useContext<any>(CardContext)
-  const { likedPicturesContext, setLikedPicturesContext } = useContext<any>(CardContext)
+  const [items, setItems] = useState([])
 
-  const getDataFromPicsumAPI = async () => {
-    try {
-      const serverResponse = await axios.get('https://picsum.photos/v2/list')
-      setPicsumData(serverResponse.data[indexContext].download_url)
-    } catch (error) {
-      console.log(error)
-    }
+  const getAllItemsFromServer = async () => {
+    const response = await BackendAPIService.getAllItems()
+    console.log('response.data: ', response.data)
+    setItems(response.data)
   }
-
   useEffect(() => {
-    getDataFromPicsumAPI()
-  }, [indexContext])
-
-  const addCountOnButtonClick = () => {
-    setIndexContext(indexContext + 1)
-  }
-  /* console.log('utanför likedPicturesContext:', likedPicturesContext) */
-  const likeAndAddCountOnButtonClick = () => {
-    setIndexContext(indexContext + 1)
-    /* console.log('innanför likedPicturesContext:', likedPicturesContext) */
-    setLikedPicturesContext([...likedPicturesContext, picsumData])
-  }
+    getAllItemsFromServer()
+  }, [])
+  console.log('items: ', items)
 
   return (
     <div className={styles.itemCardWrapper}>
-      <TinderCard
-        onSwipe={() => console.log('onSwipe')}
-        onCardLeftScreen={() => console.log('CardLeftScreen')}
-      >
-        <div className={styles.itemCard}>
-          <img className={styles.itemImage} src={picsumData} alt='A randome produkt taken from the API' />
-          <h2 className={styles.itemTitle}>Vattenkanna</h2>
-          <div className={styles.itemSubtitle}>5km bort • Kök</div>
-        </div>
-      </TinderCard>
-      <TinderCard
-        onSwipe={() => console.log('onSwipe')}
-        onCardLeftScreen={() => console.log('CardLeftScreen')}
-      >
-        <div className={styles.itemCard}>
-          <img className={styles.itemImage} src={picsumData} alt='A randome produkt taken from the API' />
-          <h2 className={styles.itemTitle}>Vattenkanna</h2>
-          <div className={styles.itemSubtitle}>5km bort • Kök</div>
-        </div>
-      </TinderCard>
+      {items.map((item: any) => (
+        <TinderCard
+          key={item._id}
+          onSwipe={() => console.log('onSwipe')}
+          onCardLeftScreen={() => console.log('CardLeftScreen')}
+        >
+          <div className={styles.itemCard}>
+            <img className={styles.itemImage} src={item.url} alt='A randome produkt taken from the API' />
+            <h2 className={styles.itemTitle}>{item.name}</h2>
+            <div className={styles.itemSubtitle}>5km bort • {item.category}</div>
+          </div>
+        </TinderCard>
+      ))}
+
+
       {/*       <h1>Produkt av typen blabla med id {indexContext}</h1>
       
       <div className='decisionButtonWrapper'>
