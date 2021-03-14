@@ -49,7 +49,7 @@ export const LogInView = () => {
   console.log('authUserContext :', authUserContext)
 
   return (
-    <div>
+    <div className="content">
       <h1>Logga in här om du vill.</h1>
       <form>
         <input

@@ -35,7 +35,7 @@ export const SignUpView = () => {
 
 
   return (
-    <div>
+    <div className="content">
       <h1>Skapa ditt konto här:</h1>
       <label>Fyll i din e-post:
         <input type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, email: event.target.value })} />

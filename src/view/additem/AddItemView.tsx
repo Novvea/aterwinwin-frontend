@@ -49,7 +49,7 @@ export const AddItemView = () => {
 
 
   return (
-    <div className={styles.wrapper}>
+    <div className="content">
       <h1>Lägg till objekt</h1>
       <label>Ladda upp bild:
         <input type="file" onChange={handleChangeImageFile} />

@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
 import { Link } from 'react-router-dom'
 import RoutingPath from '../../routes/RoutingPath'
-import './HomeView.css'
+import styles from './HomeView.module.css'
 import { ItemCards } from '../../components/itemcards/ItemCards'
 import { Search } from '../../components/search/Search'
 import { UserContext } from '../../shared/provider/UserProvider'
@@ -22,19 +22,16 @@ export const HomeView = () => {
   }, []); /* när det värdet vi sätter in i input uppdateras så körs hela useEffect om */
 
   return (
-    <div className='homeViewWrapper'>
-      {/*  {displayUsernameIfAuthenticated()} */}
-      {/*       <div className='homeViewCategoriesWrapper'>
-        <Link to={RoutingPath.categoriesView}>Kategorier</Link>
-      </div>
-      <div className='homeViewSearchWrapper'>
-        <Search />
-      </div> */}
-      <div className='homeViewItemCardsWrapper'>
-        <ItemCards />
-        <AddItemButton />
-        <Link to={RoutingPath.myProfileView}>Hitta mina gillade produkter här...</Link>
+    <div className={styles.wrapper}>
+      <div className={styles.content}>
+        <div className={styles.itemCardsContainer}>
+          <ItemCards />
+        </div>
+        <div className={styles.actionsContainer}>
+          <AddItemButton />
+        </div>
       </div>
     </div>
+
   );
 };

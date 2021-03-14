@@ -52,7 +52,7 @@ export const ItemCards = () => {
           onCardLeftScreen={() => console.log('CardLeftScreen')}
         >
           <div className={styles.itemCard}>
-            <img className={styles.itemImage} src={item.url} alt='A randome produkt taken from the API' />
+            <img className={styles.itemImage} src={item.url} width={512} height={512} alt='A random produkt taken from the API' />
             <h2 className={styles.itemTitle}>{item.name}</h2>
             <div className={styles.itemSubtitle}>5km bort • {item.category}</div>
             <button>Nej</button>

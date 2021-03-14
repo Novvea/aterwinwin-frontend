@@ -7,7 +7,6 @@
 
 .appName{
   display: flex;
-  justify-content: center;
 }
 
 .appName a { 
