@@ -6,7 +6,7 @@ import styles from './AddItemView.module.css'
 
 export const AddItemView = () => {
   const [addItemFormData, setAddItemFormData] = useState({
-    itemname: '',
+    name: '',
     category: '',
     imageUrl: ''
   })
@@ -45,6 +45,7 @@ export const AddItemView = () => {
     }
   }
 
+
   return (
     <div className={styles.wrapper}>
       <h1>Lägg till objekt</h1>
@@ -52,7 +53,7 @@ export const AddItemView = () => {
         <input type="file" onChange={handleChangeImageFile} />
       </label>
       <label> Objekttyp:
-        <input type="text" required onChange={(event) => setAddItemFormData({ ...addItemFormData, itemname: event.target.value })} />
+        <input type="text" required onChange={(event) => setAddItemFormData({ ...addItemFormData, name: event.target.value })} />
       </label>
       <label> Kategori:
         <input type="text" required onChange={(event) => setAddItemFormData({ ...addItemFormData, category: event.target.value })} />
@@ -60,7 +61,8 @@ export const AddItemView = () => {
       <button onClick={() => addNewItem()}>Spara</button>
 
       <p>The resulting image will be displayed here</p>
-      {addItemFormData.imageUrl && (<img src={addItemFormData.imageUrl} alt={addItemFormData.itemname} />)}
+      {addItemFormData.imageUrl && (<img src={addItemFormData.imageUrl} alt={addItemFormData.name} />)}
+
     </div>
   )
 }
