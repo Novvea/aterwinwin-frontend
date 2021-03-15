@@ -27,26 +27,27 @@ export const LogInView = () => {
 
 
   const signIn = () => {
-    const isUserVeryfied = allUsersFromServer.find((item: any) => {
-      if (item.email === logInFormData.email && item.password === logInFormData.password) {
+    const isUserVerified = allUsersFromServer.find((user: any) => {
+      if (user.email === logInFormData.email && user.password === logInFormData.password) {
+
         setAuthUserContext({
-          email: item.email,
-          firstname: item.firstname,
-          lastname: item.lastname,
-          password: item.password
+          email: user.email,
+          firstname: user.firstname,
+          lastname: user.lastname,
+          password: user.password
         })
         return true
       }
       return false
     })
-    if (isUserVeryfied) {
+    if (isUserVerified) {
       history.push(RoutingPath.homeView); /* vi flyttas tillbaka till home-view */
     } else {
       alert('Antingen är din epost eller ditt lösenord fel, testa igen!')
     }
   }
 
-  console.log('authUserContext :', authUserContext)
+
 
   return (
     <div className="content">
