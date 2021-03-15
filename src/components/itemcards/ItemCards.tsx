@@ -6,8 +6,7 @@ import { UserContext } from '../../shared/provider/UserProvider'
 
 export const ItemCards = () => {
   const [items, setItems] = useState<any>([])
-  const [authUserContext, setAuthUserContext] = useContext(UserContext);
-  const [mappedItem, setMappedItem] = useState<any>([])
+  const [authUserContext] = useContext(UserContext);
 
   const getAllItemsFromServer = async () => {
     const response = await BackendAPIService.getAllItems()
@@ -18,30 +17,16 @@ export const ItemCards = () => {
     getAllItemsFromServer()
   }, [])
 
-  console.log('items: ', items)
-  console.log('authUserContext: ', authUserContext)
-
 
   const userLikedItem = async (item: any) => {
     try {
-      await BackendAPIService.userLikedItem({ item, email: authUserContext.email })
       console.log('Item has been liked')
+      await BackendAPIService.userLikedItem({ id: item._id, email: authUserContext.email })
     } catch (error) {
       console.log('Error while trying to like item')
     }
   }
 
-  console.log('mappedItem: ', mappedItem)
-
-
-  /*  async () => {
-    setItems({ ...items, items.interestedUsers.push(authUserContext.email)  })
-    try {
-      await BackendAPIService.updateUserLikedItemArray({items})
-    } catch (error) {
-      console.log('Error while trying to update')
-    }
-  } */
 
   return (
     <div className={styles.itemCardWrapper}>
