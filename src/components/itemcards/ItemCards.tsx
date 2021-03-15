@@ -20,13 +20,19 @@ export const ItemCards = () => {
 
   const userLikedItem = async (item: any) => {
     try {
-      console.log('Item has been liked')
       await BackendAPIService.userLikedItem({ id: item._id, email: authUserContext.email })
     } catch (error) {
       console.log('Error while trying to like item')
     }
   }
 
+  const userDislikedItem = async (item: any) => {
+    try {
+      await BackendAPIService.userDislikedItem({ id: item._id, email: authUserContext.email })
+    } catch (error) {
+      console.log('Error while trying to dislike item')
+    }
+  }
 
   return (
     <div className={styles.itemCardWrapper}>
@@ -40,7 +46,7 @@ export const ItemCards = () => {
             <img className={styles.itemImage} src={item.url} width={512} height={512} alt='A random produkt taken from the API' />
             <h2 className={styles.itemTitle}>{item.name}</h2>
             <div className={styles.itemSubtitle}>5km bort • {item.category}</div>
-            <button>Nej</button>
+            <button onClick={() => userDislikedItem(item)}>Nej</button>
             <button onClick={() => userLikedItem(item)}>Ja</button>
           </div>
 

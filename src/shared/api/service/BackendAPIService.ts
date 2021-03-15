@@ -22,10 +22,15 @@ const userLikedItem = (likedItem: any) => {
   return http.patch('/item/liked', likedItem)
 }
 
+const userDislikedItem = (likedItem: any) => {
+  return http.patch('/item/liked', likedItem)
+}
+
 export default {
   createUser,
   getAllUsers,
   addItem,
   getAllItems,
-  userLikedItem
+  userLikedItem,
+  userDislikedItem,
 }
