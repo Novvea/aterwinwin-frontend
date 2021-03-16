@@ -56,8 +56,18 @@ export const ItemCards = () => {
             <img className={styles.itemImage} src={item.url} width={512} height={512} alt='A random produkt taken from the API' />
             <h2 className={styles.itemTitle}>{item.name}</h2>
             <div className={styles.itemSubtitle}>5km bort • {item.category}</div>
-            <button onClick={() => userDislikedItem(item)}>Nej</button>
-            <button onClick={() => userLikedItem(item)}>Ja</button>
+            <button className={styles.button} onClick={() => userDislikedItem(item)}><svg className={styles.svg} width="87" height="87" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="43.5" cy="43.5" r="41.5" fill="#E9FFC6" stroke="#EB5757" stroke-width="4" />
+              <circle cx="43.5" cy="43.5" r="32.5" fill="#EB5757" stroke="#EB5757" stroke-width="4" />
+              <path d="M59.75 31.4225L56.5775 28.25L44 40.8275L31.4225 28.25L28.25 31.4225L40.8275 44L28.25 56.5775L31.4225 59.75L44 47.1725L56.5775 59.75L59.75 56.5775L47.1725 44L59.75 31.4225Z" fill="#E9FFC6" />
+            </svg>
+            </button>
+            <button className={styles.button} onClick={() => userLikedItem(item)}><svg className={styles.svg} width="87" height="87" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="43.5" cy="43.5" r="41.5" fill="#E9FFC6" stroke="#49984C" stroke-width="4" />
+              <circle cx="43.5" cy="43.5" r="32.5" fill="#49984C" stroke="#49984C" stroke-width="4" />
+              <path d="M37.25 53.3825L27.8675 44L24.6725 47.1725L37.25 59.75L64.25 32.75L61.0775 29.5775L37.25 53.3825Z" fill="#E9FFC6" />
+            </svg>
+            </button>
           </div>
 
         </TinderCard>

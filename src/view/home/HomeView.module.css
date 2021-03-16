@@ -11,7 +11,9 @@
   flex: 1;
 }
 .actionsContainer {
-
+/*   position: absolute;
+  top: 70%;
+  left: calc(50% - 100px); /* width of button is 200px */
 }
 
 /* .homeViewWrapper {
