@@ -20,8 +20,20 @@
   display: inline-block;
 }
 
+p {
+  color: #49984C;
+  align-self: flex-end;
+  margin: 0 0 10px 0;
+}
+
 @media (max-width: 550px) {
   .appName a{
     font-size: 2rem;
+  }
+  p {
+    color: #49984C;
+    align-self: flex-end;
+    margin: 0 0 5px 0;
+    font-size: 80%;
   }
 }

@@ -10,16 +10,17 @@ export const Navigation = () => {
 
   const displayNavigationDependingOnDevice = () => {
     return (width <= 800)
-      ? <MobileNavigation/>
-      : <DesktopNavigation/>
+      ? <MobileNavigation />
+      : <DesktopNavigation />
   }
 
   return (
     <div className='navigationWrapper'>
       <div className='appName'>
         <Link to={RoutingPath.homeView}>ÅTERWINWIN</Link>
+        <p>Swipa och byt</p>
       </div>
-      {displayNavigationDependingOnDevice() }
+      {displayNavigationDependingOnDevice()}
     </div>
   );
 };
