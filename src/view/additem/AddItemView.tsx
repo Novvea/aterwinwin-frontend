@@ -49,22 +49,33 @@ export const AddItemView = () => {
 
 
   return (
-    <div className="content">
-      <h1>Lägg till objekt</h1>
-      <label>Ladda upp bild:
-        <input type="file" onChange={handleChangeImageFile} />
-      </label>
-      <label> Objekttyp:
-        <input type="text" required onChange={(event) => setAddItemFormData({ ...addItemFormData, name: event.target.value })} />
-      </label>
-      <label> Kategori:
-        <input type="text" required onChange={(event) => setAddItemFormData({ ...addItemFormData, category: event.target.value })} />
-      </label>
-      <button onClick={() => addNewItem()}>Spara</button>
+    <div className={styles.background}>
+      <div className="content">
+        <h1 className={styles.header}>Lägg till objekt</h1>
+        <div className={styles.photoContainer}>
+          {addItemFormData.url && (<img src={addItemFormData.url} alt={addItemFormData.name} />)}
+        </div>
+        <br />
+        <label className={styles.label}>Ladda upp bild:
+          <br />
+          <input className={styles.button} type="file" onChange={handleChangeImageFile} />
+        </label>
+        <br />
+        <label className={styles.label}> Objekttyp:
+          <br />
+          <input className={styles.input} type="text" required onChange={(event) => setAddItemFormData({ ...addItemFormData, name: event.target.value })} />
+        </label>
+        <br />
+        <label className={styles.label}> Kategori:
+          <br />
+          <input className={styles.input} type="text" required onChange={(event) => setAddItemFormData({ ...addItemFormData, category: event.target.value })} />
+        </label>
+        <br />
+        <button className={styles.button} onClick={() => addNewItem()}>Spara</button>
 
-      <p>The resulting image will be displayed here</p>
-      {addItemFormData.url && (<img src={addItemFormData.url} alt={addItemFormData.name} />)}
 
+
+      </div>
     </div>
   )
 }

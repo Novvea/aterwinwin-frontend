@@ -1,3 +1,4 @@
+import styles from './SignUpView.module.css'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import BackendAPIService from '../../shared/api/service/BackendAPIService'
@@ -36,28 +37,39 @@ export const SignUpView = () => {
 
   return (
     <div className="content">
-      <h1>Skapa ditt konto här:</h1>
-      <label>Fyll i din e-post:
-        <input type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, email: event.target.value })} />
+      <h1 className={styles.header}>Skapa ditt konto här:</h1>
+      <label className={styles.label}>Fyll i din e-post:
+        <br />
+        <input className={styles.input} type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, email: event.target.value })} />
       </label>
       <br />
-      <label>Fyll i ditt förnamn:
-        <input type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, firstname: event.target.value })} />
+      <label className={styles.label}>Fyll i ditt förnamn:
+      <br />
+        <input className={styles.input} type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, firstname: event.target.value })} />
       </label>
       <br />
-      <label>Fyll i ditt efternamn:
-        <input type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, lastname: event.target.value })} />
+      <label className={styles.label}>Fyll i ditt efternamn:
+      <br />
+        <input className={styles.input} type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, lastname: event.target.value })} />
       </label>
       <br />
-      <label> Fyll i ditt lösenord:
-        <input type='password' required onChange={(event) => setSignUpFormData({ ...signUpFormData, password: event.target.value })} />
+      <label className={styles.label}> Fyll i ditt lösenord:
+      <br />
+        <input className={styles.input} type='password' required onChange={(event) => setSignUpFormData({ ...signUpFormData, password: event.target.value })} />
       </label>
       <br />
-      <label> Upprepa ditt lösenord:
-        <input type='password' required onChange={(event) => setSignUpFormData({ ...signUpFormData, confirmPassword: event.target.value })} />
+      <label className={styles.label}> Upprepa ditt lösenord:
+      <br />
+        <input className={styles.input} type='password' required onChange={(event) => setSignUpFormData({ ...signUpFormData, confirmPassword: event.target.value })} />
       </label>
       <br />
-      <button onClick={() => verifyInput()}>Skapa konto</button> <br />
+      <button className={styles.buttonReverse} onClick={() => history.push(RoutingPath.homeView)}>Avbryt</button>
+      <button className={styles.button} onClick={() => verifyInput()}>Skapa konto</button> <br />
+      <div className={styles.loginContainer}>
+        <label className={styles.label}>Jag har redan ett konto och vill istället </label>
+        <button className={styles.button} onClick={() => history.push(RoutingPath.logInView)}>logga in</button>
+      </div>
+
       {/*  <hr />
             <h1>Displaying all users: </h1>
        <ul>

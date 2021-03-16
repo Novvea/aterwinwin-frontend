@@ -1,7 +1,10 @@
 .profileDropDown {
   display: none;
   position: absolute;
-  background-color: #212121cc;
+  right: 0;
+ /*  background-color: #212121cc; */
+  width: 140px;
+  text-align: center;
 }
 
 
@@ -9,8 +12,8 @@
   display: block;
   cursor: pointer;
   padding: 10px;
-  color: rgb(177, 218, 187);
-  font-family: 'Roboto', sans-serif;
+  color: #49984C;
+  font-family: 'Rambla', sans-serif;
   font-weight: 700;
   font-size: 16px;
   background: none;

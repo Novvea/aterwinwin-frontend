@@ -1,3 +1,4 @@
+import styles from './LogInView.module.css'
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import RoutingPath from "../../routes/RoutingPath";
@@ -51,29 +52,38 @@ export const LogInView = () => {
 
   return (
     <div className="content">
-      <h1>Logga in här om du vill.</h1>
+      <h1 className={styles.header}>Logga in här om du vill.</h1>
       <form>
-        <input
-          placeholder="email"
-          onChange={(event) =>
-            setLogInFormData({
-              ...logInFormData,
-              email: event.target.value
-            })
-          }
-        />
+        <label className={styles.label}> E-mail:
+          <br />
+          <input className={styles.input}
+            onChange={(event) =>
+              setLogInFormData({
+                ...logInFormData,
+                email: event.target.value
+              })
+            }
+          />
+        </label>
         <br />
-        <input
-          placeholder="password"
-          onChange={(event) =>
-            setLogInFormData({
-              ...logInFormData,
-              password: event.target.value,
-            })
-          }
-        />
-        <button onClick={signIn}>Logga in</button>
+        <label className={styles.label}> Lösenord:
+          <br />
+          <input className={styles.input}
+            onChange={(event) =>
+              setLogInFormData({
+                ...logInFormData,
+                password: event.target.value,
+              })
+            }
+          />
+        </label>
+        <br />
+        <button className={styles.button} onClick={signIn}>Logga in</button>
       </form>
+      <div className={styles.signupContainer}>
+        <label className={styles.label}>Jag har inget konto men skulle gärna vilja </label>
+        <button className={styles.button} onClick={() => history.push(RoutingPath.signUpView)}>skapa ett konto</button>
+      </div>
     </div >
   );
 };
