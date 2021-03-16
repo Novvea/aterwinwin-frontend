@@ -1,3 +1,7 @@
+:global(body) {
+  overflow-x: hidden;
+}
+
 .itemCardWrapper {
   position: relative;
   width: 100%;

@@ -34,13 +34,23 @@ export const ItemCards = () => {
     }
   }
 
+  const handleSwipeCard = (item: any, direction: string) => {
+    if (direction === 'right') {
+      userLikedItem(item)
+    }
+    if (direction === 'left') {
+      userDislikedItem(item)
+    }
+  }
+
+  console.log('items', items)
   return (
     <div className={styles.itemCardWrapper}>
       {items.map((item: any) => (
         <TinderCard
           key={item._id}
-          onSwipe={() => console.log('onSwipe')}
-          onCardLeftScreen={() => console.log('CardLeftScreen')}
+          preventSwipe={["up", "down"]}
+          onSwipe={(direction: string) => handleSwipeCard(item, direction)}
         >
           <div className={styles.itemCard}>
             <img className={styles.itemImage} src={item.url} width={512} height={512} alt='A random produkt taken from the API' />
