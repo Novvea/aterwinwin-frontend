@@ -1,18 +1,38 @@
 import './MyProfileView.css'
-import { useContext } from 'react'
-import { CardContext } from '../../../shared/provider/CardProvider'
+import { useContext, useState, useEffect } from 'react'
+import BackendAPIService from '../../../shared/api/service/BackendAPIService'
+import { UserContext } from '../../../shared/provider/UserProvider'
 
 export const MyProfileView = () => {
 
-  const { likedPicturesContext, setLikedPicturesContext } = useContext<any>(CardContext)
+  const [myUploadedItems, setMyUploadedItems] = useState([])
+  const [authUserContext, setAuthUserContext] = useContext(UserContext);
 
-  const displayLikedPicturesIfThereAreAny = () => {
-    return likedPicturesContext.length > 0
+  const getMyItemsFromServerForDisplay = async (email: string) => {
+    console.log('i send this to the server: ', email)
+    try {
+      const response = await BackendAPIService.getMyItemsFromServer(email)
+      setMyUploadedItems(response.data)
+      console.log('data just arriwwed from server', response.data)
+    } catch (error) {
+      console.log('i could not get the users items from the server')
+    }
+  }
+
+  console.log('myUploadedItems: ', myUploadedItems)
+
+  useEffect(() => {
+    getMyItemsFromServerForDisplay(authUserContext.email)
+  }, [])
+
+
+  const displayUploadedItemsIfThereAreAny = () => {
+    return myUploadedItems.length > 0
       ?
       <>
-        <h2>Jag har gillat följande bilder:</h2>
+        <h2>Mina tillagda object:</h2>
         <ul className='likedPictures'>
-          {likedPicturesContext.map((pic: string) => <li><img key={pic} src={pic} alt='Product' /></li>)}
+          {myUploadedItems.map((pic: string) => <li><img key={pic} src={pic} alt='Product' /></li>)}
         </ul>
       </>
       :
@@ -22,7 +42,7 @@ export const MyProfileView = () => {
   return (
     <div>
       <h1>Detta är min profilsida</h1>
-      {displayLikedPicturesIfThereAreAny()}
+      {displayUploadedItemsIfThereAreAny()}
 
       <ul>
         <li>Lägg till info om användaren</li>

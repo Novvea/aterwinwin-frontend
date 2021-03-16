@@ -26,6 +26,10 @@ const userDislikedItem = (likedItem: any) => {
   return http.patch('/item/liked', likedItem)
 }
 
+const getMyItemsFromServer = (email: string) => {
+  return http.get('/items/myuploads', { params: { email } })
+}
+
 export default {
   createUser,
   getAllUsers,
@@ -33,4 +37,5 @@ export default {
   getAllItems,
   userLikedItem,
   userDislikedItem,
+  getMyItemsFromServer
 }
