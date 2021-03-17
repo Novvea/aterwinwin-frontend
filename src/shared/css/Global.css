@@ -6,6 +6,7 @@ body {
 }
 
 .content {
-  max-width: 480px;
+ /*  max-width: 480px; */
+  max-width: 512px;
   margin: 0 auto;
 }

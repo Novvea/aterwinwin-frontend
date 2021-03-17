@@ -1,4 +1,4 @@
-import './MyProfileView.css'
+import styles from './MyProfileView.module.css'
 import { useContext, useState, useEffect } from 'react'
 import BackendAPIService from '../../../shared/api/service/BackendAPIService'
 import { UserContext } from '../../../shared/provider/UserProvider'
@@ -30,18 +30,30 @@ export const MyProfileView = () => {
     return myUploadedItems.length > 0
       ?
       <>
-        <h2>Mina tillagda object:</h2>
-        <ul className='likedPictures'>
-          {myUploadedItems.map((pic: string) => <li><img key={pic} src={pic} alt='Product' /></li>)}
+        <h2>Mina tillagda objekt:</h2>
+        <ul className={styles.myProducts}>
+          {myUploadedItems.map((item: any) => <li><img key={item._id} src={item.url} alt={item.name} /></li>)}
         </ul>
       </>
       :
-      <h2>Du har ännu inte gillat några bilder</h2>
+      <h2>Du har ännu inte lagt upp något att byta bort</h2>
   }
 
+  console.log('authUserContext: ', authUserContext)
+
   return (
-    <div>
-      <h1>Detta är min profilsida</h1>
+    <div className="content">
+      <img
+        className={styles.profilePhoto}
+        src={"https://thispersondoesnotexist.com/image"}
+        alt={"Profilepicture"}
+      />
+      <h1>{authUserContext.firstname} {authUserContext.lastname}</h1>
+      <p>Gick med xxx</p>
+      <button className={styles.button} >Logga ut</button>
+      <hr className={styles.hr} />
+      <h2>Dina matchningar:</h2>
+      <hr className={styles.hr} />
       {displayUploadedItemsIfThereAreAny()}
 
       <ul>
