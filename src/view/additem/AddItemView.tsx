@@ -6,7 +6,7 @@ import { UserContext } from '../../shared/provider/UserProvider'
 
 
 export const AddItemView = () => {
-  const [authUserContext, setAuthUserContext] = useContext(UserContext);
+  const [authUserContext] = useContext(UserContext);
   const [addItemFormData, setAddItemFormData] = useState({
     name: '',
     category: '',

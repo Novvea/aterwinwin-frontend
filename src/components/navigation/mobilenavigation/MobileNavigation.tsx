@@ -9,7 +9,7 @@ import { UserContext } from '../../../shared/provider/UserProvider'
 
 export const MobileNavigation = () => {
   const [openSideBar, setOpenSideBar] = useState<boolean>(false)
-  const [authUserContext, setAuthUserContext] = useContext(UserContext);
+  const [authUserContext] = useContext(UserContext);
 
   const displayNavigationOrUsername = () => {
     return authUserContext ?

@@ -6,7 +6,7 @@ import { UserContext } from '../../../shared/provider/UserProvider'
 export const MyProfileView = () => {
 
   const [myUploadedItems, setMyUploadedItems] = useState([])
-  const [authUserContext, setAuthUserContext] = useContext(UserContext);
+  const [authUserContext] = useContext(UserContext);
 
   const getMyItemsFromServerForDisplay = async (email: string) => {
     console.log('i send this to the server: ', email)
@@ -23,7 +23,7 @@ export const MyProfileView = () => {
 
   useEffect(() => {
     getMyItemsFromServerForDisplay(authUserContext.email)
-  }, [])
+  })
 
 
   const displayUploadedItemsIfThereAreAny = () => {

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import RoutingPath from '../../../routes/RoutingPath'
 
 export const ProfileDropDown = () => {
-  const [authUserContext, setAuthUserContext] = useContext(UserContext);
+  const [setAuthUserContext] = useContext(UserContext);
 
   const logOut = () => {
     setAuthUserContext(false);

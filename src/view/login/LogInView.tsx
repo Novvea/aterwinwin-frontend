@@ -8,7 +8,7 @@ import BackendAPIService from '../../shared/api/service/BackendAPIService'
 
 export const LogInView = () => {
   const history = useHistory();
-  const [authUserContext, setAuthUserContext] = useContext(UserContext);
+  const [setAuthUserContext] = useContext(UserContext);
   const [allUsersFromServer, setAllUsersFromServer] = useState([])
   const [logInFormData, setLogInFormData] = useState<i_loginCredentials>({
     email: "",

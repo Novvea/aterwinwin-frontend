@@ -1,5 +1,4 @@
-import { useState, createContext, ReactChild } from "react";
-import { i_loginCredentials } from '../interface/Interface'
+import { useState, createContext } from "react";
 
 export const UserContext = createContext<any>(null);
 

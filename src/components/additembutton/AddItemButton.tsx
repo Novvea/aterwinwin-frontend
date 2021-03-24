@@ -6,7 +6,7 @@ import { UserContext } from '../../shared/provider/UserProvider'
 
 export const AddItemButton = () => {
   const history = useHistory();
-  const [authUserContext, setAuthUserContext] = useContext(UserContext)
+  const [authUserContext] = useContext(UserContext)
 
   const moveToAddItemViewOrLogIn = () => {
     authUserContext

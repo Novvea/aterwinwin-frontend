@@ -9,6 +9,7 @@ const uploadOrUpdateImage = (file: any) => {
   return http.post('/image/upload/', formData)
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   uploadOrUpdateImage
 }

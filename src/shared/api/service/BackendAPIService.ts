@@ -30,6 +30,7 @@ const getMyItemsFromServer = (email: string) => {
   return http.get('/items/myuploads', { params: { email } })
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   createUser,
   getAllUsers,

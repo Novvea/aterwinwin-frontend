@@ -1,5 +1,5 @@
 import "./DesktopNavigation.css";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import RoutingPath from "../../../routes/RoutingPath";
 import { UserContext } from "../../../shared/provider/UserProvider";
@@ -7,8 +7,8 @@ import { Profile } from "../../profile/Profile";
 
 
 export const DesktopNavigation = () => {
-  const history = useHistory()
-  const [authUserContext, setAuthUserContext] = useContext(UserContext);
+
+  const [authUserContext] = useContext(UserContext);
 
   const displayNavigationOrUsername = () => {
     return authUserContext ?

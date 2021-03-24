@@ -1,14 +1,9 @@
-import { useEffect, useContext } from "react";
-import { Link } from 'react-router-dom'
-import RoutingPath from '../../routes/RoutingPath'
+import { useEffect } from "react";
 import styles from './HomeView.module.css'
 import { ItemCards } from '../../components/itemcards/ItemCards'
-import { Search } from '../../components/search/Search'
-import { UserContext } from '../../shared/provider/UserProvider'
 import { AddItemButton } from '../../components/additembutton/AddItemButton'
 
 export const HomeView = () => {
-  const [authUserContext] = useContext(UserContext);
 
   /*   const displayUsernameIfAuthenticated = () => {
       return authUserContext ? <h1>Välkommen till hemvyn {authUserContext.username}</h1> : <h1>Välkommen till hemvyn </h1>
