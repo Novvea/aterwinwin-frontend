@@ -53,7 +53,7 @@ export const SignUpView = () => {
         <input className={styles.input} type="text" required onChange={(event) => setSignUpFormData({ ...signUpFormData, lastname: event.target.value })} />
       </label>
       <br />
-      <label className={styles.label}> Fyll i ditt lösenord:
+      <label className={styles.label}> Fyll i ditt lösenord, men inget hemligt pga. har ej lärt mig kryptera ännu:
       <br />
         <input className={styles.input} type='password' required onChange={(event) => setSignUpFormData({ ...signUpFormData, password: event.target.value })} />
       </label>
