@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/aterwinwin-frontend/static/css/main.f16860be.chunk.css",
-    "main.js": "/aterwinwin-frontend/static/js/main.2aaa2a8a.chunk.js",
-    "main.js.map": "/aterwinwin-frontend/static/js/main.2aaa2a8a.chunk.js.map",
+    "main.js": "/aterwinwin-frontend/static/js/main.a7869a02.chunk.js",
+    "main.js.map": "/aterwinwin-frontend/static/js/main.a7869a02.chunk.js.map",
     "runtime-main.js": "/aterwinwin-frontend/static/js/runtime-main.538ef9ca.js",
     "runtime-main.js.map": "/aterwinwin-frontend/static/js/runtime-main.538ef9ca.js.map",
-    "static/js/2.ef9b7a29.chunk.js": "/aterwinwin-frontend/static/js/2.ef9b7a29.chunk.js",
-    "static/js/2.ef9b7a29.chunk.js.map": "/aterwinwin-frontend/static/js/2.ef9b7a29.chunk.js.map",
+    "static/js/2.cb5e8f37.chunk.js": "/aterwinwin-frontend/static/js/2.cb5e8f37.chunk.js",
+    "static/js/2.cb5e8f37.chunk.js.map": "/aterwinwin-frontend/static/js/2.cb5e8f37.chunk.js.map",
     "static/js/3.650d6d59.chunk.js": "/aterwinwin-frontend/static/js/3.650d6d59.chunk.js",
     "static/js/3.650d6d59.chunk.js.map": "/aterwinwin-frontend/static/js/3.650d6d59.chunk.js.map",
     "index.html": "/aterwinwin-frontend/index.html",
     "static/css/main.f16860be.chunk.css.map": "/aterwinwin-frontend/static/css/main.f16860be.chunk.css.map",
-    "static/js/2.ef9b7a29.chunk.js.LICENSE.txt": "/aterwinwin-frontend/static/js/2.ef9b7a29.chunk.js.LICENSE.txt",
+    "static/js/2.cb5e8f37.chunk.js.LICENSE.txt": "/aterwinwin-frontend/static/js/2.cb5e8f37.chunk.js.LICENSE.txt",
     "static/media/discard.9ef46390.svg": "/aterwinwin-frontend/static/media/discard.9ef46390.svg",
     "static/media/like.0078d9d4.svg": "/aterwinwin-frontend/static/media/like.0078d9d4.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.538ef9ca.js",
-    "static/js/2.ef9b7a29.chunk.js",
+    "static/js/2.cb5e8f37.chunk.js",
     "static/css/main.f16860be.chunk.css",
-    "static/js/main.2aaa2a8a.chunk.js"
+    "static/js/main.a7869a02.chunk.js"
   ]
 }
