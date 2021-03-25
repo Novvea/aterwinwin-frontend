@@ -11,7 +11,7 @@ import RoutingPath from "./RoutingPath";
 import { UserContext } from "../shared/provider/UserProvider";
 import { useContext } from "react";
 
-export const Routes = (props: { children: React.ReactChild }) => {
+export const Routes = (props: { children?: React.ReactChild }) => {
   const [authUserContext] = useContext(UserContext);
   const { children } = props;
 
