@@ -1,10 +1,10 @@
 import styles from './ItemCards.module.css'
 import { useState, useEffect, useContext } from 'react'
-import TinderCard from 'react-tinder-card'
+//import TinderCard from 'react-tinder-card'
 import BackendAPIService from '../../shared/api/service/BackendAPIService'
 import { UserContext } from '../../shared/provider/UserProvider'
-import { ReactComponent as LikeImage } from '../../shared/images/like.svg'
-import { ReactComponent as DiscardImage } from '../../shared/images/discard.svg'
+//import { ReactComponent as LikeImage } from '../../shared/images/like.svg'
+//import { ReactComponent as DiscardImage } from '../../shared/images/discard.svg'
 
 export const ItemCards = () => {
   const [items, setItems] = useState<any>([])
@@ -48,7 +48,7 @@ export const ItemCards = () => {
   console.log('items', items)
   return (
     <div className={styles.itemCardWrapper}>
-      {items.map((item: any) => (
+      {/*       {items.map((item: any) => (
         <TinderCard
           key={item._id}
           preventSwipe={["up", "down"]}
@@ -67,7 +67,7 @@ export const ItemCards = () => {
           </div>
 
         </TinderCard>
-      ))}
+      ))} */}
 
 
       {/*       <h1>Produkt av typen blabla med id {indexContext}</h1>

@@ -2,8 +2,7 @@ import { useState, createContext } from "react";
 
 export const UserContext = createContext<any>(null);
 
-export const UserProvider = (props: { children: any }) => {
-  /* export const UserProvider = (props: { children: React.ReactChild }) => { */
+export const UserProvider = (props: { children: React.ReactChild }) => {
   const [authUserContext, setAuthUserContext] = useState();
 
   const { children } = props;
