@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import { AboutView } from "../view/about/AboutView";
 import { HomeView } from "../view/home/HomeView";
 import { CategoriesView } from "../view/categories/CategoriesView";
@@ -20,7 +20,7 @@ export const Routes = (props: { children?: React.ReactChild }) => {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter basename="/" hashType="noslash" >
       {children}
       <Switch>
         <Route exact path={RoutingPath.homeView} component={HomeView} />
@@ -34,6 +34,6 @@ export const Routes = (props: { children?: React.ReactChild }) => {
         <Route component={HomeView} />{" "}
         {/* Om vi vill att homeView är den första sidan vi kommer till och om något blir fel */}
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
