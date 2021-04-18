@@ -1,10 +1,10 @@
 import Axios from 'axios'
 
-const developmentURL = 'http://localhost:3001'
-/* const productionURL = */ //en ip-adress till där backend är hosted
+// const developmentURL = 'http://localhost:3001'
+const productionURL = 'https://aterwinwin-backend.herokuapp.com'
 
 const BackendAPI = Axios.create({
-  baseURL: developmentURL
+  baseURL: productionURL
 })
 
 export default BackendAPI
